@@ -117,14 +117,14 @@ export default function PluginsTab() {
         <CardContent className="p-0">
           <h3 className="text-xl font-bold text-foreground mb-6">Active Plugins</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {plugins?.length === 0 ? (
+            {(plugins as any)?.length === 0 ? (
               <div className="col-span-full text-center py-8">
                 <Settings className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-muted-foreground">No plugins installed</p>
                 <p className="text-sm text-muted-foreground">Install plugins to extend functionality</p>
               </div>
             ) : (
-              plugins?.map((plugin: any) => (
+              (plugins as any)?.map((plugin: any) => (
                 <div key={plugin.id} className="neumorphic-inset bg-muted/30 p-4 rounded-lg">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-3">
@@ -162,7 +162,7 @@ export default function PluginsTab() {
             )}
             
             {/* Add mock plugins if none exist */}
-            {(!plugins || plugins.length === 0) && (
+            {(!plugins || (plugins as any)?.length === 0) && (
               <>
                 <div className="neumorphic-inset bg-muted/30 p-4 rounded-lg">
                   <div className="flex items-center justify-between mb-4">

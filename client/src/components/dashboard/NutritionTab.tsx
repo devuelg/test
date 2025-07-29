@@ -80,10 +80,10 @@ export default function NutritionTab() {
   }, { calories: 0, protein: 0, carbs: 0, fats: 0 }) || { calories: 0, protein: 0, carbs: 0, fats: 0 };
 
   const goals = {
-    calories: nutritionGoals?.calorieGoal || 2400,
-    protein: parseFloat(nutritionGoals?.proteinGoal || '180'),
-    carbs: parseFloat(nutritionGoals?.carbGoal || '300'),
-    fats: parseFloat(nutritionGoals?.fatGoal || '80'),
+    calories: (nutritionGoals as any)?.calorieGoal || 2400,
+    protein: parseFloat((nutritionGoals as any)?.proteinGoal || '180'),
+    carbs: parseFloat((nutritionGoals as any)?.carbGoal || '300'),
+    fats: parseFloat((nutritionGoals as any)?.fatGoal || '80'),
   };
 
   const handleAddFood = (e: React.FormEvent<HTMLFormElement>) => {

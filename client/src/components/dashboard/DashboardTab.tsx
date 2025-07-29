@@ -38,7 +38,7 @@ export default function DashboardTab() {
     );
   }
 
-  const latestBMR = bmrHistory?.[0];
+  const latestBMR = (bmrHistory as any)?.[0] || null;
 
   return (
     <div className="space-y-8">
@@ -98,7 +98,7 @@ export default function DashboardTab() {
               </span>
             </div>
             <h3 className="text-sm font-medium text-muted-foreground mb-1">Daily Calories</h3>
-            <p className="text-3xl font-bold text-foreground mb-2">{dashboardStats?.todayCalories || 2341}</p>
+            <p className="text-3xl font-bold text-foreground mb-2">{(dashboardStats as any)?.todayCalories || 2341}</p>
             <div className="flex items-center text-sm">
               <span className="text-muted-foreground">Goal: </span>
               <span className="text-orange-600 dark:text-orange-400 font-medium ml-1">2,400</span>
@@ -118,7 +118,7 @@ export default function DashboardTab() {
               </span>
             </div>
             <h3 className="text-sm font-medium text-muted-foreground mb-1">Workout Streak</h3>
-            <p className="text-3xl font-bold text-foreground mb-2">{dashboardStats?.currentStreak || 14} days</p>
+            <p className="text-3xl font-bold text-foreground mb-2">{(dashboardStats as any)?.currentStreak || 14} days</p>
             <div className="flex items-center text-sm">
               <span className="text-purple-600 dark:text-purple-400 font-medium">🔥 On fire!</span>
             </div>

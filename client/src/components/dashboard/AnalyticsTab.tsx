@@ -196,7 +196,7 @@ export default function AnalyticsTab() {
                   <Puzzle className="text-white h-6 w-6" />
                 </div>
                 <p className="text-2xl font-bold text-foreground mb-1">
-                  {frameworkHealth?.plugins_loaded || 8}/12
+                  {(frameworkHealth as any)?.plugins_loaded || 8}/12
                 </p>
                 <p className="text-sm text-muted-foreground">Plugins Active</p>
               </div>
@@ -220,7 +220,7 @@ export default function AnalyticsTab() {
                   <Heart className="text-white animate-pulse h-6 w-6" />
                 </div>
                 <p className="text-2xl font-bold text-foreground mb-1">
-                  {frameworkHealth?.status === 'healthy' ? '99.8%' : '95.2%'}
+                  {(frameworkHealth as any)?.status === 'healthy' ? '99.8%' : '95.2%'}
                 </p>
                 <p className="text-sm text-muted-foreground">System Health</p>
               </div>
@@ -234,14 +234,14 @@ export default function AnalyticsTab() {
         <CardContent className="p-0">
           <h3 className="text-xl font-bold text-foreground mb-6">Recent Events</h3>
           <div className="space-y-3">
-            {analyticsEvents?.length === 0 ? (
+            {(analyticsEvents as any)?.length === 0 ? (
               <div className="text-center py-8">
                 <Activity className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-muted-foreground">No recent events</p>
                 <p className="text-sm text-muted-foreground">Framework events will appear here as they occur</p>
               </div>
             ) : (
-              analyticsEvents?.map((event: any, index: number) => (
+              (analyticsEvents as any)?.map((event: any, index: number) => (
                 <div key={index} className="flex items-center justify-between p-3 neumorphic-inset bg-muted/30 rounded-lg">
                   <div className="flex items-center space-x-3">
                     <div className={`w-2 h-2 rounded-full ${
@@ -272,7 +272,7 @@ export default function AnalyticsTab() {
             )}
             
             {/* Add some mock recent events if none exist */}
-            {(!analyticsEvents || analyticsEvents.length === 0) && (
+            {(!analyticsEvents || (analyticsEvents as any)?.length === 0) && (
               <>
                 <div className="flex items-center justify-between p-3 neumorphic-inset bg-muted/30 rounded-lg">
                   <div className="flex items-center space-x-3">

@@ -252,13 +252,16 @@ export class DatabaseStorage implements IStorage {
       const endOfDay = new Date(date);
       endOfDay.setHours(23, 59, 59, 999);
 
-      query = query.where(
-        and(
-          eq(nutritionEntries.userId, userId),
-          gte(nutritionEntries.date, startOfDay),
-          lte(nutritionEntries.date, endOfDay)
-        )
-      );
+      query = db
+        .select()
+        .from(nutritionEntries)
+        .where(
+          and(
+            eq(nutritionEntries.userId, userId),
+            gte(nutritionEntries.date, startOfDay),
+            lte(nutritionEntries.date, endOfDay)
+          )
+        );
     }
 
     return await query.orderBy(desc(nutritionEntries.date));
